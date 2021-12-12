@@ -37,11 +37,11 @@ The performance of the host-side `cargo-rtic-scope` daemon has yet been measured
 
 ## Getting started
 
-## How RTIC Scope works
+## How RTIC Scope works, or: the RTIC metadata recovery step
 
 ## Publications
 
-TBA
+- [*RTIC Scope — Real-Time Tracing Support for the RTIC RTOS Framework*](https://github.com/tmplt/masters-thesis): a master's thesis on the development and design of RTIC Scope. Includes application example on a complex control system.
 
 ## License and contact
 See the respective repositories for non-commercial licenses.
