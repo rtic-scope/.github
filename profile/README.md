@@ -1,7 +1,7 @@
 # RTIC Scope
 
 RTIC Scope is an non-intrusive auxillary toolset for tracing [RTIC](https://rtic.rs) programs executing on ARMv7-M targets by exploiting the *Instrumentation Trace Macrocell* (ITM) and *Data Watchpoint and Trace* (DWT) units.
-The target-generated trace packet stream (henceforth referred to as the "trace stream") is recorded on a host system by reading from the *Embedded Trace Buffer* (ETM) via [probe-rs](https://probe.rs) or a serial device connected to the target's *Trace Port Interface Unit* (TPIU).
+The target-generated ITM trace packet stream (henceforth referred to as the "trace stream") is recorded on a host system by reading from the *Embedded Trace Buffer* (ETM) via [probe-rs](https://probe.rs) or a serial device connected to the target's *Trace Port Interface Unit* (TPIU).
 
 Recorded trace streams can be analyzed in real-time or replayed later without the target for post-mortem purposes.
 
