@@ -41,7 +41,7 @@ The performance of the host-side `cargo-rtic-scope` daemon has yet been measured
 
 ## Publications
 
-- [*RTIC Scope — Real-Time Tracing Support for the RTIC RTOS Framework*](https://github.com/tmplt/masters-thesis): a master's thesis on the development and design of RTIC Scope. Includes application example on a complex control system.
+- [*RTIC Scope — Real-Time Tracing Support for the RTIC RTOS Framework*](https://github.com/tmplt/masters-thesis): a master's thesis on the development and design of RTIC Scope. Will eventually include an application example on a complex control system.
 
 ## License and contact
 See the respective repositories for non-commercial licenses.
