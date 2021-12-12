@@ -7,9 +7,9 @@ Recorded trace streams can be analyzed in real-time or replayed offline for post
 
 ## Toolset components
 
-RTIC Scope is a collection of a three crates:
+RTIC Scope is a collection of three crates:
 - [`cargo-rtic-scope`](https://github.com/rtic-scope/cargo-rtic-scope/tree/master/cargo-rtic-scope): the host-side daemon that records the trace stream, recovers RTIC app metadata, serializes the replay file to disk, and forwards the trace to a frontend;
-- [`rtic-scope-api`](https://github.com/rtic-scope/cargo-rtic-scope/tree/master/rtic-scope-api): the `serde` JSON API implemented by a frontend; and
+- [`rtic-scope-api`](https://github.com/rtic-scope/cargo-rtic-scope/tree/master/rtic-scope-api): the `serde` JSON API implemented by `cargo-rtic-scope` and any frontend; and
 - [`cortex-m-rtic-trace`](https://github.com/rtic-scope/cargo-rtic-scope/tree/master/cortex-m-rtic-trace): an auxilliary target-side crate that propely configures the ITM/DWT/TPIU units. [^1]
 
 [^1]: This crate is a crutch and will be deprecated on v1.0.0 release: see https://github.com/rtic-scope/cargo-rtic-scope/issues/90.
