@@ -22,6 +22,15 @@ The other repositories listed below are dependencies with patches that are due (
 
 ## Performance impact of ITM/DWT tracing
 
+[ARM's *Understanding Trace*, §7](https://developer.arm.com/documentation/102119/0200/Can-trace-capture-affect-a-system-) states that:
+> Except for the power that is consumed by the system trace components, trace is almost entirely non-invasive. This means that performing trace generation and collection does not influence the wider system.
+
+The target-side code of RTIC Scope itself has a negligible performance impact during execution:
+- the ITM/DWT/TPIU units need only be configured once in `#[init]` or during a later stage; and
+- when software tasks are traced, a `u8` variable write must be done when entering and exiting the task.
+
+The performance of the host-side `cargo-rtic-scope` daemon has yet been measured.
+
 ## Limitations
 
 ## Roadmap
