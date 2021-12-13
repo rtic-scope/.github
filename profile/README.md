@@ -18,7 +18,9 @@ A [dummy frontend, `rtic-scope-frontend-dummy`](https://github.com/rtic-scope/fr
 
 [^2]: The dummy only prints received trace information to `stderr` with absolute microsecond (and relative nanosecond) timestamps. These messages are echoed by `cargo-rtic-scope`.
 
-The other repositories listed below are dependencies with patches that are due (or already have been) pushed upstream.
+The other repositories listed below (except [`itm`](https://github.com/rtic-scope/itm) [^3]) are dependencies with patches that are due (or already have been) pushed upstream.
+
+[^3]: `itm` is a library for decoding the ITM packet protocol. Because of its general nature and detachment from the implemention of RTIC Scope, it is not a part of the project itself, but hosted here for convenience.
 
 ## Performance impact of ITM/DWT tracing
 
