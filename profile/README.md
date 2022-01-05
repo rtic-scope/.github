@@ -240,10 +240,34 @@ mod app {
 If the target does not support the requested trace configuration, `cortex_m_rtic_trace::configure` will return an `Err`.
 
 ### Tracing the RTIC application
+With the target appropriately configured, we can now trace the application:
+```shell
+$ cd /path/to/rtic-scope-example
+$ cargo rtic-scope trace --bin rtic-scope-example --chip stm32f401retx
+```
+or alternatively:
+```shell
+$ cargo rtic-scope trace --bin rtic-scope-example --serial /path/to/device [--dont-touch-target]
+```
+While tracing, resolved metadata and recorded ITM packets will be serialized to a `*.trace*` file under `target/rtic-traces`.
 
 ### Replaying a trace
+To list all recorded trace files, execute:
+```shell
+$ cargo rtic-scope replay --list [--trace-dir]
+```
+A trace file can then be replayed via
+```shell
+$ cargo rtic-scope replay <idx> [--trace-dir]
+```
+or via
+```shell
+$ cargo rtic-scope replay --trace-file /path/to/trace/file
+```
 
 ## How RTIC Scope works, or: the RTIC metadata recovery step
+
+TODO
 
 ## Publications
 
