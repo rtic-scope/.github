@@ -265,10 +265,6 @@ or via
 $ cargo rtic-scope replay --trace-file /path/to/trace/file
 ```
 
-## How RTIC Scope works, or: the RTIC metadata recovery step
-
-TODO
-
 ## Publications
 
 - [*RTIC Scope — Real-Time Tracing Support for the RTIC RTOS Framework*](https://github.com/tmplt/masters-thesis): a master's thesis on the development and design of RTIC Scope. Will eventually include an application example on a complex control system.
@@ -278,7 +274,3 @@ See the respective repositories for non-commercial licenses.
 
 This project is maintained in cooperation with [@GrepitAB](https://github.com/GrepitAB) and Luleå Technical University.
 For commercial support and alternative licensing, inquire via <contact@grepit.se>, or contact me directly at <viktor.sonesten@grepit.se>.
-
----
-
-This `README.md` is a work in progress until [the v0.3.0 milestone](https://github.com/rtic-scope/cargo-rtic-scope/milestone/3) closes.
