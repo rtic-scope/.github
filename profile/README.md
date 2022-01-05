@@ -68,13 +68,13 @@ $ cargo install --git https://github.com/rtic-scope/frontend-dummy # install the
 
 ### Reading the trace stream from the target
 RTIC Scope implements two methods to extract the trace stream from the target.
-The recommended method is via `probe-rs` which polls the /Embedded Trace Buffer/ (ETB) of the target by specifying `--chip` (e.g. `--chip stm32f401retx`, just like [`cargo-flash`](https://github.com/probe-rs/cargo-flash) [^cargo-flash]).
+The recommended method is via `probe-rs` which polls the *Embedded Trace Buffer* (ETB) of the target by specifying `--chip` (e.g. `--chip stm32f401retx`, just like [`cargo-flash`](https://github.com/probe-rs/cargo-flash) [^6]).
 Using `probe-rs` also optionally flashes and resets your target with the chosen firmware (specify with `--bin`).
 This can be disabled via `--dont-touch-target`.
 The second method is by reading the trace stream from a serial device by specifying `--serial /path/to/serial/device`.
 A raw ITM trace stream is expected on this device. This trace stream can be read from the SWO or TRACE debug pins. It's left to the end-user to configure hardware such that the expected stream can be read from the serial device.
 
-[^cargo-flash] `cargo-rtic-scope` is an extension of `cargo-flash`. All options supported by `cargo-flash` are also supported by `cargo-rtic-scope`, e.g. `--bin` and `--list-chips`.
+[^6]: `cargo-rtic-scope` is an extension of `cargo-flash`. All options supported by `cargo-flash` are also supported by `cargo-rtic-scope`, e.g. `--bin` and `--list-chips`.
 
 ### Generating the trace stream on the target
 When using the `probe-rs` approach the target is partially configured to emit ITM packets with timestamps when hardware tasks are entered and exited.
