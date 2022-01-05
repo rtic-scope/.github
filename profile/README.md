@@ -43,6 +43,9 @@ For a more general tool, see [orbuculum](https://github.com/orbcode/orbuculum).
 ## Roadmap
 See [the project milestones](https://github.com/rtic-scope/cargo-rtic-scope/milestones).
 
+## Changelog
+See [`cargo-rtic-scope/CHANGELOG.md`](https://github.com/rtic-scope/cargo-rtic-scope/blob/master/CHANGELOG.md).
+
 ## Getting started
 
 ## How RTIC Scope works, or: the RTIC metadata recovery step
