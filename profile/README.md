@@ -37,8 +37,10 @@ The performance of the host-side `cargo-rtic-scope` daemon has yet been measured
 
 ## Limitations
 As of v0.3.0, RTIC Scope supports RTIC v1.0.0.
-Support for other real-time operating systems is not planned.
-For a more general tool, see [orbuculum](https://github.com/orbcode/orbuculum).
+Support for other real-time operating systems is not planned as implied by the project name; such a project would warrant functionality of RTIC Scope to merge into a larger project.
+Interested in adapting RTIC Scope for other RTOSs? Feel free to contact me.
+
+For a more general tool that is not limited to RTIC, see [orbuculum](https://github.com/orbcode/orbuculum).
 
 ## Roadmap
 See [the project milestones](https://github.com/rtic-scope/cargo-rtic-scope/milestones).
