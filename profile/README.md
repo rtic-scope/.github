@@ -47,6 +47,23 @@ See [the project milestones](https://github.com/rtic-scope/cargo-rtic-scope/mile
 See [`cargo-rtic-scope/CHANGELOG.md`](https://github.com/rtic-scope/cargo-rtic-scope/blob/master/CHANGELOG.md).
 
 ## Getting started
+The purpose of RTIC Scope is to enable instant insight into your firmware if it is written in RTIC with ideally zero end-user overhead, except for setting some flags in the RTIC application declaration and potentially writing some configuration in a checked-in file. [^4]
+
+[^4]: RTIC Scope is not quite there yet. See [#100](https://github.com/rtic-scope/cargo-rtic-scope/issues/100).
+
+Start by installing the toolset: [^5]
+```shell
+$ # Prepare by installing system libraries:
+$ # if you have Nix available:
+$ nix develop github:rtic-scope/cargo-rtic-scope?dir=contrib
+$ # otherwise:
+$ sudo apt install -y libusb-1.0-0-dev libftdi1-dev libudev-dev # or equivalent; see <https://github.com/probe-rs/probe-rs#building>
+$ # then install RTIC Scope:
+$ cargo install --git https://github.com/rtic-scope/cargo-rtic-scope cargo-rtic-scope # install the cargo subcommand
+$ cargo install --git https://github.com/rtic-scope/frontend-dummy # install the dummy frontend
+```
+
+[^5]: Installation cannot yet be done against the crate registery. See [#101](https://github.com/rtic-scope/cargo-rtic-scope/issues/101).
 
 ## How RTIC Scope works, or: the RTIC metadata recovery step
 
