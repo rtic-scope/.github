@@ -79,7 +79,7 @@ A raw ITM trace stream is expected on this device. This trace stream can be read
 [^6]: `cargo-rtic-scope` is an extension of `cargo-flash`. All options supported by `cargo-flash` are also supported by `cargo-rtic-scope`, e.g. `--bin` and `--list-chips`.
 
 ### Generating the trace stream on the target
-When using the `probe-rs` approach the target is partially configured to emit ITM packets with timestamps when hardware tasks are entered and exited.
+When using the `probe-rs` method the target is partially configured to emit ITM packets with timestamps when hardware tasks are entered and exited.
 What remains is to flip any device-specific ITM master switches.
 Work has begun on `probe-rs` to remove this burden from the end-user, but each platform is different.
 No additional target-side configuration must be done unless software task tracing is wanted.
@@ -87,7 +87,7 @@ However, for reasons of symmetry, it is recommended that `cortex-m-rtic-trace` i
 
 Starting from a skeleton RTIC application for an `stm32f401retx` we have:
 ```rust
-//! `rtic-scope-example`
+//! rtic-scope-example
 #![no_main]
 #![no_std]
 
@@ -161,7 +161,7 @@ cortex-m = { version = "0.7", git = "https://github.com/rtic-scope/cortex-m.git"
 ```
 and
 ```rust
-//! `rtic-scope-example`
+//! rtic-scope-example
 #![no_main]
 #![no_std]
 
