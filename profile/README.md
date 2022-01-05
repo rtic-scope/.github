@@ -54,7 +54,7 @@ See [the project milestones](https://github.com/rtic-scope/cargo-rtic-scope/mile
 ## License and contact
 See the respective repositories for non-commercial licenses.
 
-This project is maintained in cooperation with @GrepitAB and Luleå Technical University.
+This project is maintained in cooperation with [@GrepitAB](https://github.com/GrepitAB) and Luleå Technical University.
 For commercial support and alternative licensing, inquire via <contact@grepit.se>, or contact me directly at <viktor.sonesten@grepit.se>.
 
 ---
