@@ -249,7 +249,7 @@ or alternatively:
 ```shell
 $ cargo rtic-scope trace --bin rtic-scope-example --serial /path/to/device [--dont-touch-target]
 ```
-While tracing, resolved metadata and recorded ITM packets will be serialized to a `*.trace*` file under `target/rtic-traces`.
+While tracing, resolved metadata and recorded ITM packets will be serialized to a `*.trace` file under `target/rtic-traces`.
 
 ### Replaying a trace
 To list all recorded trace files, execute:
