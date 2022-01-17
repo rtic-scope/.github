@@ -61,9 +61,8 @@ $ # if you have Nix available:
 $ nix develop github:rtic-scope/cargo-rtic-scope?dir=contrib
 $ # otherwise:
 $ sudo apt install -y libusb-1.0-0-dev libftdi1-dev libudev-dev # or equivalent; see <https://github.com/probe-rs/probe-rs#building>
-$ # then install RTIC Scope:
-$ cargo install --git https://github.com/rtic-scope/cargo-rtic-scope cargo-rtic-scope # install the cargo subcommand
-$ cargo install --git https://github.com/rtic-scope/frontend-dummy # install the dummy frontend
+$ # then install RTIC Scope: the cargo subcommand and reference frontend:
+$ cargo install --git https://github.com/rtic-scope/cargo-rtic-scope cargo-rtic-scope rtic-scope-frontend-dummy
 ```
 
 [^5]: Installation cannot yet be done against the crate registery. See [#101](https://github.com/rtic-scope/cargo-rtic-scope/issues/101).
