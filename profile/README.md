@@ -264,6 +264,67 @@ or via
 $ cargo rtic-scope replay --trace-file /path/to/trace/file
 ```
 
+## FAQ
+### Why am I getting an erroneous trace?
+A current fundamental flag of `cargo rtic-scope trace` is that it expects the *Serial Wire Out* (SWO) pin to be configured before the device boots.
+This issue is not necessarily common to all Cortex-M platforms but the pin with SWO functionality must usually be configured before it emits a trace.
+This configuration causes a transient period of noise on the pin, incorrectly interpreted as ITM packets, ultimately thrashing the state of the ITM packet decoder.
+A solution to this (albeit hacky) is to
+1. insert a breakpoint, delay, or a wait-for-pin-pulled-high/low after SWO configuration;
+2. start your trace as usual; and
+3. continue from the breakpoint.
+
+For example, the PC27 for `atsame51n` must be configured into the alternative mode *M*, after first configuring the trace clock:
+```rust,ignore
+#[init]
+fn init(mut ctx: init::Context) -> (SharedResources, LocalResources, init::Monotonics()) {
+    // configure trace clock
+    let mut gcc = GenericClockController::with_internal_32kosc(
+        ctx.device.GCLK,
+        &mut ctx.device.MCLK,
+        &mut ctx.device.OSC32KCTRL,
+        &mut ctx.device.OSCCTRL,
+        &mut ctx.device.NVMCTRL,
+    );
+    let gclk0 = gcc.gclk0();
+    let trace_clk = gcc.cm4_trace(&gclk0).unwrap();
+
+    let freq = trace_clk.freq().0;
+
+    // configure SWO pin; this causes transient noise on the pin.
+    let pins = hal::gpio::v2::Pins::new(ctx.device.PORT);
+    let _pc27 = pins.pc27.into_mode::<Alternate<M>>();
+
+    // start `cargo rtic-scope trace` before continuing from this point
+    cortex_m::asm::bkpt();
+
+    // configure tracing
+    cortex_m_rtic_trace::configure(
+        &mut ctx.core.DCB,
+        &mut ctx.core.TPIU,
+        &mut ctx.core.DWT,
+        &mut ctx.core.ITM,
+        1, // task enter DWT comparator ID
+        2, // task exit DWT comparator ID
+        &TraceConfiguration {
+            delta_timestamps: LocalTimestampOptions::Enabled,
+            absolute_timestamps: GlobalTimestampOptions::Disabled,
+            timestamp_clk_src: TimestampClkSrc::AsyncTPIU,
+            tpiu_freq: freq,
+            tpiu_baud: 38400,
+            protocol: TraceProtocol::AsyncSWONRZ, // use SWO pin
+        },
+    )
+    .unwrap();
+
+    // remainder of init...
+}
+```
+
+An alternative is to use the *Embedded Trace Buffer* (ETB) instead of the TPIU (which serializes to the SWO pin).
+This peripheral instead writes the trace packets to RAM which a debugger polls.
+See the investigation in [#128](https://github.com/rtic-scope/cargo-rtic-scope/issues/128).
+
 ## Publications
 
 - [*RTIC Scope — Real-Time Tracing Support for the RTIC RTOS Framework*](https://github.com/tmplt/masters-thesis): a master's thesis on the development and design of RTIC Scope. Will eventually include an application example on a complex control system.
