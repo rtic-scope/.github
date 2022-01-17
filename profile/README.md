@@ -12,7 +12,7 @@ RTIC Scope is a collection of three crates:
 - [`rtic-scope-api`](https://github.com/rtic-scope/cargo-rtic-scope/tree/master/rtic-scope-api): the `serde` JSON API implemented by `cargo-rtic-scope` and any frontend; and
 - [`cortex-m-rtic-trace`](https://github.com/rtic-scope/cargo-rtic-scope/tree/master/cortex-m-rtic-trace): an auxilliary target-side crate that propely configures the ITM/DWT/TPIU units. [^1]
 
-[^1]: This crate is a crutch and will be deprecated on v1.0.0 release: see https://github.com/rtic-scope/cargo-rtic-scope/issues/90.
+[^1]: This crate is a crutch and will be deprecated on v1.0.0 release: see [#90](https://github.com/rtic-scope/cargo-rtic-scope/issues/90).
 
 A [dummy frontend, `rtic-scope-frontend-dummy`](https://github.com/rtic-scope/frontend-dummy) [^2] is also available for reference purposes, but can be substituted by any frontend that implements the API: a graphical user interface, a database client, etc.
 
