@@ -14,7 +14,7 @@ RTIC Scope is a collection of three crates:
 
 [^1]: This crate is a crutch and will be deprecated on v1.0.0 release: see [#90](https://github.com/rtic-scope/cargo-rtic-scope/issues/90).
 
-A [dummy frontend, `rtic-scope-frontend-dummy`](https://github.com/rtic-scope/frontend-dummy) [^2] is also available for reference purposes, but can be substituted by any frontend that implements the API: a graphical user interface, a database client, etc.
+A [dummy frontend, `rtic-scope-frontend-dummy`](https://github.com/rtic-scope/cargo-rtic-scope/tree/master/rtic-scope-frontend-dummy) [^2] is also available for reference purposes, but can be substituted by any frontend that implements the API: a graphical user interface, a database client, etc.
 
 [^2]: The dummy only prints received trace information to `stderr` with absolute microsecond (and relative nanosecond) timestamps. These messages are echoed by `cargo-rtic-scope`.
 
