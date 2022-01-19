@@ -250,6 +250,20 @@ $ cargo rtic-scope trace --bin rtic-scope-example --serial /path/to/device [--do
 ```
 While tracing, resolved metadata and recorded ITM packets will be serialized to a `*.trace` file under `target/rtic-traces`.
 
+An example output of this trace command would be
+```text
+    Building RTIC target application...
+  Recovering metadata for trace-example (/path/to/main.rs) and preparing target...
+   Recovered 2 task(s) trace-example: 1 hard, 1 soft.
+       Error /home/tmplt/.cargo/bin/rtic-scope-frontend-dummy: @2084 µs (+2084 ns): [Task { name: "app::hardware", action: Entered }]
+       Error /home/tmplt/.cargo/bin/rtic-scope-frontend-dummy: @3584 µs (+1500 ns): [Task { name: "app::software", action: Entered }]
+       Error /home/tmplt/.cargo/bin/rtic-scope-frontend-dummy: @4001 µs (+417 ns): [Task { name: "app::software", action: Exited }]
+       Error /home/tmplt/.cargo/bin/rtic-scope-frontend-dummy: @4085 µs (+84 ns): [Task { name: "app::hardware", action: Returned }]
+       Error /home/tmplt/.cargo/bin/rtic-scope-frontend-dummy: @8252 µs (+4167 ns): [Task { name: "app::hardware", action: Exited }]
+      Traced atsamd-demo: 13 packets processed in 9s (~1.4 packets/s; 0 malformed, 0 non-mappable); 2/2 sinks operational.
+```
+for an RTIC application that defines one software task and one hardware task, where the software task has higher priority.
+
 ### Replaying a trace
 To list all recorded trace files, execute:
 ```shell
