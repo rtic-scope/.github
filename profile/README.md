@@ -85,7 +85,7 @@ No additional target-side configuration must be done unless software task tracin
 However, for reasons of symmetry, it is recommended that `cortex-m-rtic-trace` is employed.
 
 Starting from a skeleton RTIC application for an `stm32f401retx` we have:
-```rust
+```rust,ignore
 //! rtic-scope-example
 #![no_main]
 #![no_std]
@@ -159,7 +159,7 @@ git = "https://github.com/rtic-scope/cortex-m-rtic-trace"
 cortex-m = { version = "0.7", git = "https://github.com/rtic-scope/cortex-m.git", branch = "rtic-scope" }
 ```
 and
-```rust
+```rust,ignore
 //! rtic-scope-example
 #![no_main]
 #![no_std]
